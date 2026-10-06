@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ضاغف مبيعاتك 10 أضعاف | اختر الخدمة المناسبة لمشروعك</title>
+    <title>Aristo MEDIA | حلول التسويق النمو والتجارة الإلكترونية</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
@@ -13,40 +13,41 @@
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between p-4 md:p-8">
 
     <!-- Header -->
-    <header class="text-center py-6">
-        <div class="inline-block bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-bold px-4 py-1.5 rounded-full text-sm mb-3">
+    <header class="text-center py-8">
+        <div class="inline-block bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-bold px-4 py-1.5 rounded-full text-sm mb-4">
             🚀 Aristo MEDIA - خدمات التسويق والتجارة الإلكترونية
         </div>
-        <h1 class="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-            ضاعف مبيعاتك × 10
+        <h1 class="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 leading-tight">
+            حلول متكاملة لتطوير وتكبير تجارتك الإلكترونية
         </h1>
-        <p class="text-slate-400 mt-2 text-sm md:text-base">أجب عن الأسئلة التالية لتحديد الخطة المناسبة لتطوير تجارتك الإلكترونية</p>
+        <p class="text-slate-400 mt-3 text-sm md:text-base max-w-xl mx-auto">
+            أجب عن الأسئلة التالية لتحديد احتياجات مشروعك بدقة والحصول على استراتيجية عمل مخصصة
+        </p>
     </header>
 
-    <!-- Main Quiz Container -->
+    <!-- Quiz Container (Filtering Funnel) -->
     <main class="max-w-2xl w-full mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-10 shadow-2xl relative overflow-hidden my-auto">
         
         <!-- Progress Bar -->
         <div class="w-full bg-slate-800 h-2.5 rounded-full mb-8 overflow-hidden">
-            <div id="progress-bar" class="bg-gradient-to-r from-cyan-500 to-blue-600 h-full w-1/3 transition-all duration-300"></div>
+            <div id="progress-bar" class="bg-gradient-to-r from-cyan-500 to-blue-600 h-full w-1/5 transition-all duration-300"></div>
         </div>
 
         <!-- Question 1 -->
         <div id="step-1" class="quiz-step space-y-6">
-            <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">السؤال 1 من 3</span>
-            <h2 class="text-2xl font-bold text-white">ما هي الحالة الحالية لمشروعك أو تجارتك؟</h2>
-            
+            <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">السؤال 1 من 5</span>
+            <h2 class="text-xl md:text-2xl font-bold text-white">ما هو مجال عملك أو نوع المنتجات التي تبيعها؟</h2>
             <div class="space-y-3">
-                <button onclick="nextStep(1, 'new')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">يلا بغيت نبدا وباقي معندي والو (متجر / إعلان / حساب)</span>
+                <button onclick="nextStep(1, 'التجارة الإلكترونية / COD')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
+                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">التجارة الإلكترونية والدفع عند الاستلام (COD)</span>
                     <span class="text-cyan-400 font-bold">←</span>
                 </button>
-                <button onclick="nextStep(1, 'has_store')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">عندي متجر ولكن ما عنديش إعلان ولا حملة إعلانية</span>
+                <button onclick="nextStep(1, 'خدمات / استشارات')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
+                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">تقديم خدمات أو استشارات أو تدريب</span>
                     <span class="text-cyan-400 font-bold">←</span>
                 </button>
-                <button onclick="nextStep(1, 'has_ads')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">عندي متجر وفيديو ولكن بغيت اللي يسير ليا الإعلانات ولا يحل مشكل الحسابات</span>
+                <button onclick="nextStep(1, 'تجارة محلية')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
+                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">محل تجاري / خدمة تستهدف زبناء محليين</span>
                     <span class="text-cyan-400 font-bold">←</span>
                 </button>
             </div>
@@ -54,20 +55,19 @@
 
         <!-- Question 2 -->
         <div id="step-2" class="quiz-step hidden space-y-6">
-            <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">السؤال 2 من 3</span>
-            <h2 class="text-2xl font-bold text-white">ما هو الهدف الرئيسي الذي تريد تحقيقه حالياً؟</h2>
-            
+            <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">السؤال 2 من 5</span>
+            <h2 class="text-xl md:text-2xl font-bold text-white">كم عدد الطلبيات التي تحققها حالياً شهرياً؟</h2>
             <div class="space-y-3">
-                <button onclick="nextStep(2, 'full_setup')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">إطلاق متجر متكامل وجاهز للبيع فوراً بجميع الملحقات</span>
+                <button onclick="nextStep(2, 'بداية جديدة (0 مبيعات)')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
+                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">ما زلت في مرحلة البداية (0 مبيعات)</span>
                     <span class="text-cyan-400 font-bold">←</span>
                 </button>
-                <button onclick="nextStep(2, 'ads_management')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">إطلاق وإدارة حملة إعلانية احترافية لجلب المبيعات</span>
+                <button onclick="nextStep(2, 'أقل من 30 طلبية')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
+                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">مبيعات متقطعة (أقل من 30 طلبية شهرياً)</span>
                     <span class="text-cyan-400 font-bold">←</span>
                 </button>
-                <button onclick="nextStep(2, 'creative_store')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">تصميم متجر احترافي أو فيديو إعلاني جذاب</span>
+                <button onclick="nextStep(2, 'أكثر من 50 طلبية')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
+                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">مبيعات منتظمة وأرغب في التوسع (+50 طلبية شهرياً)</span>
                     <span class="text-cyan-400 font-bold">←</span>
                 </button>
             </div>
@@ -75,20 +75,59 @@
 
         <!-- Question 3 -->
         <div id="step-3" class="quiz-step hidden space-y-6">
-            <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">السؤال 3 من 3</span>
-            <h2 class="text-2xl font-bold text-white">ما هي الميزانية المحددة للبدء؟</h2>
-            
+            <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">السؤال 3 من 5</span>
+            <h2 class="text-xl md:text-2xl font-bold text-white">ما هي العرقلة الكبرى التي تعاني منها حالياً؟</h2>
             <div class="space-y-3">
-                <button onclick="calculateResult('budget_full')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">أرضى بالحصول على العرض الشامل الموفر (حول 500 درهم)</span>
+                <button onclick="nextStep(3, 'ضعف تحويل المتجر')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
+                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">الزوار يدخلون لكن لا يطلبون (ضعف المتجر/العرض)</span>
                     <span class="text-cyan-400 font-bold">←</span>
                 </button>
-                <button onclick="calculateResult('budget_medium')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">ميزانية متوسطة لخدمة معينة (من 140 إلى 250 درهم)</span>
+                <button onclick="nextStep(3, 'ضعف الفيديو والإعلانات')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
+                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">ارتفاع تكلفة الإعلانات وعدم جذب الزبناء (ضعف الإعلان)</span>
                     <span class="text-cyan-400 font-bold">←</span>
                 </button>
-                <button onclick="calculateResult('budget_low')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">ميزانية بسيطة لخدمة محددة (أقل من 150 درهم)</span>
+                <button onclick="nextStep(3, 'إغلاق الحسابات الإعلانية')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
+                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">مشاكل حظر الحسابات الإعلانية وتوقف الحملات</span>
+                    <span class="text-cyan-400 font-bold">←</span>
+                </button>
+                <button onclick="nextStep(3, 'مشروع جديد بالكامل')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
+                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">أرغب في إنشاء وتجهيز مشروعي بالكامل من الصفر</span>
+                    <span class="text-cyan-400 font-bold">←</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div id="step-4" class="quiz-step hidden space-y-6">
+            <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">السؤال 4 من 5</span>
+            <h2 class="text-xl md:text-2xl font-bold text-white">ما هي المنصة التي ترغب في التركيز عليها؟</h2>
+            <div class="space-y-3">
+                <button onclick="nextStep(4, 'Meta (Facebook/Instagram)')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
+                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">فيسبوك وإنستغرام (Meta Ads)</span>
+                    <span class="text-cyan-400 font-bold">←</span>
+                </button>
+                <button onclick="nextStep(4, 'TikTok')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
+                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">تيك توك (TikTok Ads)</span>
+                    <span class="text-cyan-400 font-bold">←</span>
+                </button>
+                <button onclick="nextStep(4, 'كلا المنصتين')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
+                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">كلا المنصتين معاً للحصول على أقصى نتيجة</span>
+                    <span class="text-cyan-400 font-bold">←</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div id="step-5" class="quiz-step hidden space-y-6">
+            <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">السؤال 5 من 5</span>
+            <h2 class="text-xl md:text-2xl font-bold text-white">هل أنت جاهز للبدء والاستثمار في نمو تجارتك الآن؟</h2>
+            <div class="space-y-3">
+                <button onclick="calculateResult('جاهز للبدء فوراً')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
+                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">نعم، مستعد للبدء فوراً وتطوير مشروعي</span>
+                    <span class="text-cyan-400 font-bold">←</span>
+                </button>
+                <button onclick="calculateResult('أرغب في استشارة')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
+                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">أرغب في مناقشة الخطة عبر الواتساب أولاً</span>
                     <span class="text-cyan-400 font-bold">←</span>
                 </button>
             </div>
@@ -97,36 +136,28 @@
         <!-- Loading State -->
         <div id="step-loading" class="hidden text-center py-12 space-y-4">
             <div class="w-12 h-12 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
-            <p class="text-lg font-bold text-slate-200">جاري تحليل إجاباتك وتحديد الخدمة الأنسب لمشروعك...</p>
+            <p class="text-lg font-bold text-slate-200">جاري تحليل الإجابات وتحديد الخطة المناسبة لمتجرك...</p>
         </div>
 
         <!-- Result Section -->
         <div id="step-result" class="hidden space-y-6">
             <div class="text-center">
                 <span class="bg-green-500/10 text-green-400 border border-green-500/30 px-4 py-1 rounded-full text-xs font-bold inline-block mb-3">
-                    ✔ النتيجة المقترحة لك بناءً على إجاباتك
+                    ✔ تم تحليل معطيات مشروعك بنجاح
                 </span>
-                <h2 id="result-title" class="text-3xl font-black text-white">الباك الكامل (499 درهم)</h2>
+                <h2 id="result-title" class="text-2xl md:text-3xl font-black text-white">الخطة المخصصة لنمو تجارتك</h2>
             </div>
 
-            <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 text-slate-300 space-y-3">
-                <p id="result-desc" class="text-base leading-relaxed">
-                    هذا هو الخيار المثالي لبدء مشروعك بقوة وتفادي أي أخطاء. يشمل العرض جميع المقومات المطلوبة لإطلاق مبيعاتك فوراً.
-                </p>
-                <hr class="border-slate-700 my-4">
-                <h4 class="font-bold text-white mb-2">تفاصيل الخدمة بالتفصيل:</h4>
-                <ul id="result-features" class="space-y-2 text-sm">
-                    <!-- Dynamic List -->
-                </ul>
-                <div class="pt-4 flex items-center justify-between border-t border-slate-700 mt-4">
-                    <span class="text-slate-400">السعر الإجمالي:</span>
-                    <span id="result-price" class="text-3xl font-black text-cyan-400">499 درهم</span>
-                </div>
+            <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 text-slate-300 space-y-4">
+                <p id="result-desc" class="text-base leading-relaxed text-slate-200"></p>
+                <hr class="border-slate-700 my-2">
+                <h4 class="font-bold text-white text-lg">الخدمات التي نوصي بها لمشروعك:</h4>
+                <ul id="result-features" class="space-y-3 text-sm text-slate-300"></ul>
             </div>
 
-            <!-- WhatsApp Call To Action -->
+            <!-- WhatsApp Direct Call To Action -->
             <a id="whatsapp-link" href="#" target="_blank" class="block w-full text-center bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold text-lg py-4 rounded-xl shadow-xl transition transform active:scale-95">
-                💬 اطلب الخدمة الآن عبر الواتساب
+                💬 تواصل معنا مباشرة عبر الواتساب
             </a>
             
             <button onclick="resetQuiz()" class="block w-full text-center text-slate-500 hover:text-slate-300 text-xs mt-2">
@@ -136,75 +167,108 @@
 
     </main>
 
-    <!-- Services Summary Breakdown -->
-    <section class="max-w-4xl w-full mx-auto mt-12 mb-8">
-        <h3 class="text-center text-2xl font-bold mb-8 text-slate-200">تفاصيل جميع خدماتنا بوضوح</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- Long Funnel: Detailed Services Section with Images -->
+    <section class="max-w-5xl w-full mx-auto mt-20 mb-12">
+        <div class="text-center mb-16">
+            <span class="text-cyan-400 text-sm font-bold tracking-widest uppercase">خدماتنا الاحترافية</span>
+            <h3 class="text-3xl md:text-4xl font-extrabold text-slate-100 mt-2">كل ما يحتاجه متجرك الإلكتروني للنجاح</h3>
+            <p class="text-slate-400 text-sm md:text-base mt-2">نوفر لك حلولاً تسويقية وتقنية شاملة تغنيك عن الاستعانة بأي طرف آخر</p>
+        </div>
+
+        <div class="space-y-16">
             
-            <!-- Service 1 -->
-            <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
-                <div class="flex justify-between items-center mb-2">
-                    <h4 class="font-bold text-white text-lg">تسيير حملة إعلانية (7 أيام)</h4>
-                    <span class="text-cyan-400 font-bold bg-cyan-950 px-3 py-1 rounded-lg text-sm">250 درهم</span>
+            <!-- Service 1: Campaign Management -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-6 items-center p-6 md:p-8 hover:border-slate-700 transition">
+                <div class="order-2 md:order-1 space-y-4">
+                    <div class="inline-block bg-blue-500/10 text-blue-400 text-xs font-bold px-3 py-1 rounded-full">إداريات وإعلانات</div>
+                    <h4 class="text-2xl font-bold text-white">تسيير حملة إعلانية احترافية</h4>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        نقوم بإدارة وإطلاق حملاتك الإعلانية على منصات Meta (Facebook & Instagram) و TikTok. تشمل الخدمة الاستهداف الدقيق للجمهور المهتم، متابعة الميزانية اليومية، تحسين العائد على الاستثمار (ROAS)، واستراتيجيات اختبار المنتجات (A/B Testing) لتحقيق أكبر قدر من المبيعات بأقل تكلفة.
+                    </p>
+                    <ul class="text-xs text-slate-400 space-y-2">
+                        <li class="flex items-center gap-2"><span class="text-cyan-400">✔</span> استهداف دقيق ومجرب للجمهور الشاري.</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan-400">✔</span> تتبع الأداء وتحسين المبيعات بشكل يومي.</li>
+                    </ul>
                 </div>
-                <p class="text-slate-400 text-sm leading-relaxed">
-                    إدارة واستهداف دقيق للحملة الإعلانية على Facebook أو TikTok لمشروعك لمدة 7 أيام متواصلة لجلب أعلى نسبة مبيعات بأقل تكلفة للعميل.
-                </p>
+                <div class="order-1 md:order-2">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="تسيير حملة إعلانية" class="rounded-2xl w-full h-64 object-cover border border-slate-800">
+                </div>
             </div>
 
-            <!-- Service 2 -->
-            <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
-                <div class="flex justify-between items-center mb-2">
-                    <h4 class="font-bold text-white text-lg">تصميم متجر احترافي</h4>
-                    <span class="text-cyan-400 font-bold bg-cyan-950 px-3 py-1 rounded-lg text-sm">149 درهم</span>
+            <!-- Service 2: Store Design -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-6 items-center p-6 md:p-8 hover:border-slate-700 transition">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1556742049-0a670f4a4591?auto=format&fit=crop&w=800&q=80" alt="تصميم متجر إلكتروني" class="rounded-2xl w-full h-64 object-cover border border-slate-800">
                 </div>
-                <p class="text-slate-400 text-sm leading-relaxed">
-                    تصميم متجر إلكتروني سريع وسلس متوافق مع الهاتف (YouCan)، مع إضافة منتجاتك، تعديل الألوان، صياغة وصف احترافي ورابط للواتساب.
-                </p>
+                <div class="space-y-4">
+                    <div class="inline-block bg-emerald-500/10 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full">تصوير وتطوير</div>
+                    <h4 class="text-2xl font-bold text-white">تصميم متجر إلكتروني احترافي</h4>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        نصمم لك متجراً متكاملاً وعالي السرعة سواء على منصة **YouCan** أو **Shopify**. نقوم بتخصيص الألوان، كتابة نصوص بيعية مقنعة للمنتج (Copywriting)، إضافة أزرار اطلب الآن الثابتة، وضبط نموذج الطلب السريع لرفع نسبة التحويل وإقناع الزائر بالشراء فوراً.
+                    </p>
+                    <ul class="text-xs text-slate-400 space-y-2">
+                        <li class="flex items-center gap-2"><span class="text-cyan-400">✔</span> متجر متوافق 100% مع الهواتف الذكية.</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan-400">✔</span> ربط سريع للواتساب وصفحة الهبوط (Landing Page).</li>
+                    </ul>
+                </div>
             </div>
 
-            <!-- Service 3 -->
-            <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
-                <div class="flex justify-between items-center mb-2">
-                    <h4 class="font-bold text-white text-lg">تصميم فيديو إعلاني</h4>
-                    <span class="text-cyan-400 font-bold bg-cyan-950 px-3 py-1 rounded-lg text-sm">140 درهم</span>
+            <!-- Service 3: Video Creatives -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-6 items-center p-6 md:p-8 hover:border-slate-700 transition">
+                <div class="order-2 md:order-1 space-y-4">
+                    <div class="inline-block bg-purple-500/10 text-purple-400 text-xs font-bold px-3 py-1 rounded-full">صناعة المحتوى</div>
+                    <h4 class="text-2xl font-bold text-white">تصميم فيديوهات إعلانية (مونتاج / ذكاء اصطناعي)</h4>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        ننشئ لك إعلانات فيديو احترافية تجذب الانتباه في أول 3 ثوانٍ. نعتمد على المونتاج المتقدم أو تقنيات الذكاء الاصطناعي (AI Voiceover & Scripting) لصياغة سيناريوهات تسويقية قوية تناسب منصات TikTok و Meta وتزيد من نسبة الضغط على إعلانك (CTR).
+                    </p>
+                    <ul class="text-xs text-slate-400 space-y-2">
+                        <li class="flex items-center gap-2"><span class="text-cyan-400">✔</span> تعليق صوتي احترافي بالذكاء الاصطناعي أو المونتاج الاحترافي.</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan-400">✔</span> كتابة النصوص ومؤثرات جالبة للمبيعات.</li>
+                    </ul>
                 </div>
-                <p class="text-slate-400 text-sm leading-relaxed">
-                    مونتاج فيديو إعلاني عالي الجودة ومجذب للانتباه مصمم خصيصاً لمنصات TikTok وMeta مع كتابة نص تعليقي ومؤثرات جليبة للمبيعات.
-                </p>
+                <div class="order-1 md:order-2">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" alt="تصميم فيديوهات إعلانية" class="rounded-2xl w-full h-64 object-cover border border-slate-800">
+                </div>
             </div>
 
-            <!-- Service 4 -->
-            <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
-                <div class="flex justify-between items-center mb-2">
-                    <h4 class="font-bold text-white text-lg">إنشاء حساب إعلاني قوي</h4>
-                    <span class="text-cyan-400 font-bold bg-cyan-950 px-3 py-1 rounded-lg text-sm">80 درهم</span>
+            <!-- Service 4: Ad Accounts -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-6 items-center p-6 md:p-8 hover:border-slate-700 transition">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" alt="حسابات إعلانية قوية" class="rounded-2xl w-full h-64 object-cover border border-slate-800">
                 </div>
-                <p class="text-slate-400 text-sm leading-relaxed">
-                    إعداد وتهيئة حساب إعلاني موثوق ومحمي مع ربط البيكسل وسائل الدفع بطريقة صحيحة لتفادي الإغلاق ولضمان استقرار الحملات.
-                </p>
+                <div class="space-y-4">
+                    <div class="inline-block bg-amber-500/10 text-amber-400 text-xs font-bold px-3 py-1 rounded-full">بنية تحتية</div>
+                    <h4 class="text-2xl font-bold text-white">إنشاء وتجهيز حسابات إعلانية قوية</h4>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        نوفر لك حلولاً متكاملة لتفادي إغلاق وحظر الحسابات الإعلانية. نقوم بتهيئة Business Manager الموثوق، ربط وسائط الدفع الصحيحة، وتجهيز البيكسل (Pixel & Conversions API) لضمان استقرار إعلاناتك واستمراريتها دون توقف.
+                    </p>
+                    <ul class="text-xs text-slate-400 space-y-2">
+                        <li class="flex items-center gap-2"><span class="text-cyan-400">✔</span> ربط صحيح للبيكسل لتتبع التحويلات.</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan-400">✔</span> حماية حساباتك وتفادي الإغلاق المفاجئ.</li>
+                    </ul>
+                </div>
             </div>
 
         </div>
 
-        <!-- Full Package Highlight -->
-        <div class="mt-6 bg-gradient-to-r from-cyan-900/40 to-blue-900/40 border-2 border-cyan-500 p-6 rounded-2xl text-center">
-            <span class="bg-cyan-500 text-slate-950 font-black text-xs px-3 py-1 rounded-full uppercase">العرض الأكثر طلباً 🎁</span>
-            <h4 class="text-2xl font-black text-white my-2">الباك الكامل الشامل</h4>
-            <p class="text-slate-300 text-sm mb-4">احصل على المتجر + الفيديو الإعلاني + الحساب الإعلاني القوي + تسيير الحملة لمدة 7 أيام ووفر أكثر من 120 درهم!</p>
-            <span class="text-3xl font-black text-cyan-400">499 درهم فقط</span>
+        <!-- Final Call to Action -->
+        <div class="mt-16 text-center bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-12">
+            <h4 class="text-2xl md:text-3xl font-bold text-white">هل أنت جاهز لتطوير تجارتك اليوم؟</h4>
+            <p class="text-slate-400 text-sm mt-2 max-w-lg mx-auto">تواصل معنا الآن مباشرة عبر الواتساب لمناقشة مشروعك واختيار الخطة الأنسب لك.</p>
+            <a href="https://wa.me/212601559517?text=%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D9%80%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83%D9%85%20%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1%20%D9%85%D8%AA%D8%AC%D8%B1%D9%8A%20%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A" target="_blank" class="inline-block mt-6 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-xl transition transform active:scale-95">
+                💬 تواصل عبر الواتساب: 0601559517
+            </a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="text-center py-6 text-slate-500 text-xs border-t border-slate-900">
-        جميع الحقوق محفوظة © Aristo MEDIA | خدمات التسويق الرقمي
+        جميع الحقوق محفوظة © Aristo MEDIA | خدمات التسويق الرقمي والتجارة الإلكترونية
     </footer>
 
     <!-- Logic Script -->
     <script>
-        // تغيير رقم الواتساب هنا ليتم توجيه الزبناء إليه
-        const WHATSAPP_NUMBER = "212600000000"; 
+        const WHATSAPP_NUMBER = "212601559517";
 
         let userAnswers = {};
 
@@ -215,72 +279,53 @@
             const nextStepNum = currentStep + 1;
             document.getElementById(`step-${nextStepNum}`).classList.remove('hidden');
             
-            // Update progress bar
-            const progress = (nextStepNum / 3) * 100;
+            const progress = (nextStepNum / 5) * 100;
             document.getElementById('progress-bar').style.width = `${progress}%`;
         }
 
-        function calculateResult(budgetAnswer) {
-            userAnswers['budget'] = budgetAnswer;
-            document.getElementById('step-3').classList.add('hidden');
+        function calculateResult(readiness) {
+            userAnswers['readiness'] = readiness;
+            document.getElementById('step-5').classList.add('hidden');
             document.getElementById('step-loading').classList.remove('hidden');
 
             setTimeout(() => {
                 document.getElementById('step-loading').classList.add('hidden');
                 document.getElementById('step-result').classList.remove('hidden');
                 
-                // Logic to set result
                 const title = document.getElementById('result-title');
                 const desc = document.getElementById('result-desc');
-                const price = document.getElementById('result-price');
                 const features = document.getElementById('result-features');
                 const waBtn = document.getElementById('whatsapp-link');
 
-                if (userAnswers.step1 === 'new' || userAnswers.budget === 'budget_full') {
-                    // Full Package Result
-                    title.innerText = "الباك الكامل الشامل 🎁";
-                    desc.innerText = "بناءً على إجاباتك، أنت تحتاج إلى انطلاقة متكاملة بدون تضييع الوقت أو المال. الباك الكامل يجمع لك كل الخدمات بسعر موفر.";
-                    price.innerText = "499 درهم";
+                if (userAnswers.step2 === 'بداية جديدة (0 مبيعات)' || userAnswers.step3 === 'مشروع جديد بالكامل') {
+                    title.innerText = "خطة التجهيز الشامل والانطلاقة";
+                    desc.innerText = "مشروعك يحتاج لبناء متكامل لتفادي تضييع المال. سنقوم بتجهيز المتجر، المحتوى الإعلاني الحصري، وتأمين الحسابات قبل إطلاق الإعلانات.";
                     features.innerHTML = `
-                        <li>✔ تسيير حملة إعلانية لمدة 7 أيام (250 د.م)</li>
-                        <li>✔ تصميم متجر احترافي متكامل (149 د.م)</li>
-                        <li>✔ تصميم فيديو إعلاني جذاب (140 د.م)</li>
-                        <li>✔ إنشاء حساب إعلاني قوي ومحمي (80 د.م)</li>
+                        <li>🚀 **تصميم متجر متكامل:** واجهة سريعة ومقنعة على YouCan أو Shopify.</li>
+                        <li>🚀 **فيديو إعلاني جذاب:** صياغة سيناريو ومونتاج بمؤثرات قوية.</li>
+                        <li>🚀 **تسيير الحملة والإشراف:** إطلاق الحملة على المنصة المناسبة.</li>
                     `;
-                    setWhatsApp(waBtn, "السلام عليكم، كملت الكويز وبغيت نستافد من الباك الكامل (499 درهم)");
-                } else if (userAnswers.step2 === 'ads_management') {
-                    // Ads Campaign Result
-                    title.innerText = "تسيير حملة إعلانية (7 أيام)";
-                    desc.innerText = "بما أن لديك متجر وفيديو جاهز، فالتركيز الآن يجب أن يكون على جلب المبيعات باستهداف دقيق وحملة موجهة.";
-                    price.innerText = "250 درهم";
+                } else if (userAnswers.step3 === 'ضعف تحويل المتجر') {
+                    title.innerText = "خطة إعادة هيكلة المتجر ورفع المبيعات";
+                    desc.innerText = "المشكلة في تحويل الزوار إلى مشترين. سنقوم بتطوير واجهة متجرك وصياغة العروض لرفع نسبة المبيعات.";
                     features.innerHTML = `
-                        <li>✔ إعداد واختبار الجماهير والموقع الجغرافي</li>
-                        <li>✔ تتبع النتائج وتخفيض تكلفة الشراء (CPA)</li>
-                        <li>✔ إشراف ومتابعة يومية لمدة 7 أيام</li>
+                        <li>🎯 **تطوير المتجر:** تحسين تجربة الشراء وسرعة التصفح.</li>
+                        <li>🎯 **صنع محتوى جديد:** فيديوهات إعلانية تركز على زوايا بيع مختلفة.</li>
                     `;
-                    setWhatsApp(waBtn, "السلام عليكم، كملت الكويز وبغيت خدمة تسيير حملة إعلانية 7 أيام (250 درهم)");
-                } else if (userAnswers.step2 === 'creative_store' && userAnswers.budget === 'budget_medium') {
-                    // Store Design Result
-                    title.innerText = "تصميم متجر احترافي";
-                    desc.innerText = "الواجهة الاحترافية هي أساس بناء الثقة وزيادة نسبة التحويلات (Conversion Rate).";
-                    price.innerText = "149 درهم";
-                    features.innerHTML = `
-                        <li>✔ تصميم متجر متوافق 100% مع الهواتف</li>
-                        <li>✔ إضافة وصف تسويقي وتعديل الصور</li>
-                        <li>✔ ربط أزرار الواتساب والشراء المباشر</li>
-                    `;
-                    setWhatsApp(waBtn, "السلام عليكم، كملت الكويز وبغيت خدمة تصميم متجر احترافي (149 درهم)");
                 } else {
-                    // Video Creative Result
-                    title.innerText = "تصميم فيديو إعلاني احترافي";
-                    desc.innerText = "الإعلان الجذاب هو السبب الأول في نجاح أي حملة إعلانية على TikTok أو Facebook.";
-                    price.innerText = "140 درهم";
+                    title.innerText = "خطة التوسع ومضاعفة النتائج";
+                    desc.innerText = "مشروعك جاهز للتوسع والوصول إلى أرقام مضاعفة أسبوعياً عبر حملات احترافية حساسة وتتبع دقيق.";
                     features.innerHTML = `
-                        <li>✔ مونتاج احترافي بأسلوب التجارة الإلكترونية</li>
-                        <li>✔ كتابة نص إعلاني مؤثر ومحفز للشرء</li>
-                        <li>✔ اختيار الصوت والمؤثرات المناسبة للمنتج</li>
+                        <li>🔥 **تسيير حملات متقدمة:** استهداف دقيق وتقليل تكلفة طلبية الشراء.</li>
+                        <li>🔥 **تأمين البنية التحتية:** حسابات إعلانية قوية لمنع التوقف.</li>
                     `;
-                    setWhatsApp(waBtn, "السلام عليكم، كملت الكويز وبغيت خدمة تصميم فيديو إعلاني (140 درهم)");
+                }
+
+                const waMessage = `السلام عليكم، أكملت التقييم في الموقع:\n- المجال: ${userAnswers.step1}\n- المبيعات الحالية: ${userAnswers.step2}\n- المشكلة الرئيسية: ${userAnswers.step3}\n- المنصة المفضلّة: ${userAnswers.step4}\nأرغب في مناقشة الخطة معكم.`;
+                setWhatsApp(waBtn, waMessage);
+
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'CompleteRegistration');
                 }
 
             }, 1200);
@@ -289,11 +334,16 @@
         function setWhatsApp(element, text) {
             const encodedText = encodeURIComponent(text);
             element.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`;
+            element.onclick = function() {
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Contact');
+                }
+            };
         }
 
         function resetQuiz() {
             userAnswers = {};
-            document.getElementById('progress-bar').style.width = '33%';
+            document.getElementById('progress-bar').style.width = '20%';
             document.getElementById('step-result').classList.add('hidden');
             document.getElementById('step-1').classList.remove('hidden');
         }
