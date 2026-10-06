@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Landing Page Generator - منصة إنشاء صفحات الهبوط</title>
+  <!-- Tailwind CSS عبر CDN للحصول على سرعة فائقة وبدون تعقيدات -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Tajawal', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+  <!-- الهيدر / القائمة العلوية -->
+  <header class="bg-white border-b border-blue-100 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="bg-blue-600 text-white p-2 rounded-lg font-bold text-xl">AI</div>
+        <span class="text-xl font-bold text-blue-900">LandGen</span>
+      </div>
+      <nav class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
+        <a href="#features" class="hover:text-blue-600 transition">المميزات</a>
+        <a href="#pricing" class="hover:text-blue-600 transition">الباقات</a>
+        <a href="#faq" class="hover:text-blue-600 transition">الأسئلة الشائعة</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <a href="#pricing" class="text-sm font-medium text-blue-600 hover:text-blue-700">تسجيل الدخول</a>
+        <a href="#pricing" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition shadow-sm">ابدأ الآن</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- القسم الرئيسي (Hero Section) -->
+  <section class="py-20 px-6 bg-gradient-to-b from-blue-50 to-slate-50 text-center">
+    <div class="max-w-4xl mx-auto">
+      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">توليد مدعوم بالذكاء الاصطناعي</span>
+      <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mt-4 leading-tight">
+        أنشئ صفحة هبوط الاحترافية في <span class="text-blue-600">ثوانٍ معدودة</span>
+      </h1>
+      <p class="text-lg md:text-xl text-slate-600 mt-6 max-w-2xl mx-auto">
+        ادخل تفاصيل منتجك ودع الذكاء الاصطناعي يصمم ويكتب لك صفحة هبوط عالية التحويل وجاهزة للإطلاق فوراً.
+      </p>
+      <div class="mt-8 flex justify-center gap-4">
+        <a href="#pricing" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg px-8 py-3 rounded-xl shadow-lg hover:shadow-blue-200 transition">تجربة المنصة الآن</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم خطط الأسعار (Pricing) -->
+  <section id="pricing" class="py-20 px-6 max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-3xl font-bold text-slate-900">خطط وأسعار تناسب جميع الاحتياجات</h2>
+      <p class="text-slate-600 mt-3">اختر الباقة المناسبة لك وابدأ في تنمية مشروعك اليوم</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 items-stretch">
+      
+      <!-- الباقة الأولى: 5 دولار -->
+      <div class="bg-white p-8 rounded-2xl border border-slate-200 hover:border-blue-300 transition shadow-sm flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl font-bold text-slate-800">الباقة الأساسية</h3>
+          <p class="text-slate-500 text-sm mt-1">مثالية للمبتدئين وللتجربة الأولية</p>
+          <div class="my-6">
+            <span class="text-4xl font-extrabold text-slate-900">$5</span>
+            <span class="text-slate-500 text-sm">/ شهرياً</span>
+          </div>
+          <ul class="space-y-4 text-sm text-slate-600">
+            <li class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              توليد 3 صفحات هبوط شهرياً
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              قوالب جاهزة أساسية
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              تصدير بصيغة HTML
+            </li>
+          </ul>
+        </div>
+        <button class="mt-8 w-full bg-slate-100 hover:bg-blue-50 text-blue-600 font-bold py-3 rounded-xl transition">اشتراك الآن</button>
+      </div>
+
+      <!-- الباقة الثانية: 10 دولار (الأكثر شعبية) -->
+      <div class="bg-white p-8 rounded-2xl border-2 border-blue-600 relative shadow-xl flex flex-col justify-between transform md:-translate-y-2">
+        <div class="absolute -top-4 right-1/2 translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">الأكثر طلباً</div>
+        <div>
+          <h3 class="text-xl font-bold text-slate-800">الباقة الاحترافية</h3>
+          <p class="text-slate-500 text-sm mt-1">للمسوقين وأصحاب المشاريع الناشئة</p>
+          <div class="my-6">
+            <span class="text-4xl font-extrabold text-blue-600">$10</span>
+            <span class="text-slate-500 text-sm">/ شهرياً</span>
+          </div>
+          <ul class="space-y-4 text-sm text-slate-600">
+            <li class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              توليد 10 صفحات هبوط شهرياً
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              كتابة إعلانات وبنود تسويقية متقدمة
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              تعديل مباشر وتحرير الألوان
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              ربط دومين خاص
+            </li>
+          </ul>
+        </div>
+        <button class="mt-8 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-md transition">اختر الباقة</button>
+      </div>
+
+      <!-- الباقة الثالثة: 15 دولار -->
+      <div class="bg-white p-8 rounded-2xl border border-slate-200 hover:border-blue-300 transition shadow-sm flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl font-bold text-slate-800">الباقة غير المحدودة</h3>
+          <p class="text-slate-500 text-sm mt-1">للوكالات والشركات الإعلانية</p>
+          <div class="my-6">
+            <span class="text-4xl font-extrabold text-slate-900">$15</span>
+            <span class="text-slate-500 text-sm">/ شهرياً</span>
+          </div>
+          <ul class="space-y-4 text-sm text-slate-600">
+            <li class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              توليد لا محدود لصفحات الهبوط
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              دعم لغات متعددة (عربي / إنجليزي)
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              تصدير الكود البرمجي كاملاً (React / HTML)
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              دعم فني أولي وخاص
+            </li>
+          </ul>
+        </div>
+        <button class="mt-8 w-full bg-slate-100 hover:bg-blue-50 text-blue-600 font-bold py-3 rounded-xl transition">اشتراك الآن</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- الفوتر / أسفل الصفحة -->
+  <footer class="bg-blue-950 text-blue-200 py-8 text-center text-sm border-t border-blue-900">
+    <p>© 2026 جميع الحقوق محفوظة - منصة توليد صفحات الهبوط الذكية</p>
+  </footer>
+
+</body>
+</html>
