@@ -1,50 +1,156 @@
-<!-- قسم الباقات والأسعار -->
-    <section id="pricing" class="pricing-section">
-        <div class="container">
-            <h2 class="section-title">خطط وأسعار تناسب جميع الاحتياجات</h2>
-            <p class="section-subtitle">اختر الباقة المناسبة لك وابدأ في تنمية مشروعك اليوم</p>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Landing Page Generator - منصة إنشاء صفحات الهبوط بالذكاء الاصطناعي</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- الهيدر / القائمة العلوية -->
+    <header class="bg-white border-b border-blue-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="bg-blue-600 text-white p-2 rounded-lg font-bold text-xl">AI</div>
+                <span class="font-bold text-xl text-slate-900">LandingGen</span>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="#generate" class="hover:text-blue-600 transition">توليد صفحة</a>
+                <a href="#pricing" class="hover:text-blue-600 transition">الباقات والأسعار</a>
+            </nav>
+            <div>
+                <a href="#generate" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-medium text-sm transition inline-block">جرب مجاناً</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- الهيرو / القسم الرئيسي -->
+    <section class="py-16 px-6 text-center max-w-4xl mx-auto">
+        <span class="bg-blue-50 text-blue-700 text-xs font-semibold px-4 py-1.5 rounded-full border border-blue-200">توليد مدعوم بالذكاء الاصطناعي</span>
+        <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mt-6 leading-tight">
+            أنشئ صفحة هبوط احترافية في <span class="text-blue-600 underline decoration-blue-200 underline-offset-8">ثوانٍ معدودة</span>
+        </h1>
+        <p class="text-lg text-slate-600 mt-6 max-w-2xl mx-auto leading-relaxed">
+            أدخل تفاصيل منتجك ودع الذكاء الاصطناعي يصمم ويكتب لك صفحة هبوط عالية التحويل وجاهزة للإطلاق فوراً.
+        </p>
+    </section>
+
+    <!-- قسم تجربة التوليد (Generator Form) -->
+    <section id="generate" class="py-10 bg-white border-y border-slate-200 shadow-sm">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-slate-900">جرب منشئ الصفحات بالذكاء الاصطناعي</h2>
+                <p class="text-slate-500 text-sm mt-1">أدخل معلومات منتجك لإنشاء صفحتك فوراً</p>
+            </div>
             
-            <div class="pricing-grid">
-                <!-- الباقة الأولى -->
-                <div class="pricing-card">
-                    <h3 class="plan-name">الباقة الأولية</h3>
-                    <div class="plan-price">$5 <span>/ شهرياً</span></div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> 3 صفحات هبوط شهرياً</li>
-                        <li><i class="fas fa-check"></i> نصوص إعلانية أساسية</li>
-                        <li><i class="fas fa-check"></i> تصدير بصيغة HTML</li>
-                    </ul>
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=Bouchaibchajari04@gmail.com&currency_code=USD&amount=5&item_name=Basic%20Plan" class="btn btn-outline" target="_blank">اشتراك الآن (PayPal)</a>
+            <form id="landingForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-1">اسم المنتج أو الخدمة</label>
+                    <input type="text" id="productName" required placeholder="مثال: عطر لافندر الملكي" class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-1">وصف المنتج والمميزات</label>
+                    <textarea id="productDesc" rows="3" required placeholder="اكتب وصفاً قصيراً وعروض المنتج..." class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl transition shadow-md">
+                    ✨ توليد صفحة الهبوط الآن (مجاناً)
+                </button>
+            </form>
+
+            <div id="resultBox" class="hidden mt-6 p-4 bg-green-50 border border-green-200 rounded-xl text-center">
+                <p class="text-green-800 font-bold">تم استلام طلبك بنجاح! جاري تحضير الكود عبر الذكاء الاصطناعي...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم أسعار الباقات / Pricing -->
+    <section id="pricing" class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-slate-900">خطط وأسعار تناسب الجميع</h2>
+                <p class="text-slate-600 mt-3">اختر الباقة المناسبة لك وابدأ في تنمية مشروعك</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 items-stretch">
+                <!-- الباقة الأولى: مجانية ($0) -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-8 flex flex-col justify-between hover:border-blue-300 transition shadow-sm">
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900">الباقة التجريبية</h3>
+                        <p class="text-sm text-slate-500 mt-1">للمبتدئين والتجربة السريعة</p>
+                        <div class="mt-6 mb-6">
+                            <span class="text-4xl font-extrabold text-slate-900">$0</span>
+                            <span class="text-slate-500 text-sm">/ مجاناً</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-600 mb-8">
+                            <li class="flex items-center gap-2">✓ تجربة توليد صفحة واحدة</li>
+                            <li class="flex items-center gap-2">✓ قالب أساسي سريع</li>
+                            <li class="flex items-center gap-2">✓ معاينة فورية</li>
+                        </ul>
+                    </div>
+                    <a href="#generate" class="w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 rounded-xl transition">تجربة مجانية الآن</a>
                 </div>
 
-                <!-- الباقة الثانية (الأكثر طلباً) -->
-                <div class="pricing-card featured">
-                    <div class="badge">الأكثر طلباً</div>
-                    <h3 class="plan-name">الباقة الاحترافية</h3>
-                    <p class="plan-target">للمسوقين وأصحاب المشاريع الناشئة</p>
-                    <div class="plan-price">$10 <span>/ شهرياً</span></div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> توليد 10 صفحات هبوط شهرياً</li>
-                        <li><i class="fas fa-check"></i> كتابة إعلانات وبنود تسويقية متقدمة</li>
-                        <li><i class="fas fa-check"></i> تعديل مباشر وتحرير الألوان</li>
-                        <li><i class="fas fa-check"></i> ربط دومين خاص</li>
-                    </ul>
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=Bouchaibchajari04@gmail.com&currency_code=USD&amount=10&item_name=Pro%20Plan" class="btn btn-primary" target="_blank">اختر الباقة (PayPal)</a>
+                <!-- الباقة الثانية: الاحترافية ($10) -->
+                <div class="bg-white border-2 border-blue-600 rounded-2xl p-8 flex flex-col justify-between shadow-xl relative bg-blue-50/20">
+                    <span class="absolute -top-3.5 right-1/2 translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">الأكثر طلباً</span>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900">الباقة الاحترافية</h3>
+                        <p class="text-sm text-slate-500 mt-1">للمسوقين وأصحاب المشاريع الناشئة</p>
+                        <div class="mt-6 mb-6">
+                            <span class="text-4xl font-extrabold text-blue-600">$10</span>
+                            <span class="text-slate-500 text-sm">/ شهرياً</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-600 mb-8">
+                            <li class="flex items-center gap-2">✓ توليد 10 صفحات هبوط شهرياً</li>
+                            <li class="flex items-center gap-2">✓ كتابة إعلانات ونصوص تسويقية متقدمة</li>
+                            <li class="flex items-center gap-2">✓ تعديل وتحرير الألوان والتصاميم</li>
+                            <li class="flex items-center gap-2">✓ تصدير الكود البرمجي HTML كامل</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=Bouchaibchajari04@gmail.com&currency_code=USD&amount=10&item_name=Pro%20Plan" target="_blank" class="w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-md transition">شراء الباقة عبر PayPal ($10)</a>
                 </div>
 
-                <!-- الباقة الثالثة -->
-                <div class="pricing-card">
-                    <h3 class="plan-name">الباقة غير المحدودة</h3>
-                    <p class="plan-target">للوكالات والشركات الإعلانية</p>
-                    <div class="plan-price">$15 <span>/ شهرياً</span></div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> توليد لا محدود لصفحات الهبوط</li>
-                        <li><i class="fas fa-check"></i> دعم لغات متعددة (عربي / إنجليزي)</li>
-                        <li><i class="fas fa-check"></i> تصدير الكود البرمجي كاملاً (Tailwind)</li>
-                        <li><i class="fas fa-check"></i> دعم فني أولي وخاص</li>
-                    </ul>
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=Bouchaibchajari04@gmail.com&currency_code=USD&amount=15&item_name=Unlimited%20Plan" class="btn btn-outline" target="_blank">اشتراك الآن (PayPal)</a>
+                <!-- الباقة الثالثة: غير المحدودة ($15) -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-8 flex flex-col justify-between hover:border-blue-300 transition shadow-sm">
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900">الباقة غير المحدودة</h3>
+                        <p class="text-sm text-slate-500 mt-1">للوكالات والشركات الإعلانية</p>
+                        <div class="mt-6 mb-6">
+                            <span class="text-4xl font-extrabold text-slate-900">$15</span>
+                            <span class="text-slate-500 text-sm">/ شهرياً</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-600 mb-8">
+                            <li class="flex items-center gap-2">✓ توليد لا محدود لصفحات الهبوط</li>
+                            <li class="flex items-center gap-2">✓ دعم لغات متعددة (عربي / إنجليزي)</li>
+                            <li class="flex items-center gap-2">✓ تصدير الكود البرمجي كاملاً (Tailwind)</li>
+                            <li class="flex items-center gap-2">✓ دعم فني خاص ومباشر</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=Bouchaibchajari04@gmail.com&currency_code=USD&amount=15&item_name=Unlimited%20Plan" target="_blank" class="w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition">شراء الباقة عبر PayPal ($15)</a>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- الفوتر -->
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm border-t border-slate-800">
+        <p>© 2026 جميع الحقوق محفوظة - منصة LandingGen الذكية</p>
+    </footer>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            document.getElementById('resultBox').classList.remove('hidden');
+        }
+    </script>
+
+</body>
+</html>
