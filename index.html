@@ -1,352 +1,45 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aristo MEDIA | حلول التسويق النمو والتجارة الإلكترونية</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Tajawal', sans-serif; }
-    </style>
-</head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between p-4 md:p-8">
+import os
+import time
+import requests
 
-    <!-- Header -->
-    <header class="text-center py-8">
-        <div class="inline-block bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-bold px-4 py-1.5 rounded-full text-sm mb-4">
-            🚀 Aristo MEDIA - خدمات التسويق والتجارة الإلكترونية
-        </div>
-        <h1 class="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 leading-tight">
-            حلول متكاملة لتطوير وتكبير تجارتك الإلكترونية
-        </h1>
-        <p class="text-slate-400 mt-3 text-sm md:text-base max-w-xl mx-auto">
-            أجب عن الأسئلة التالية لتحديد احتياجات مشروعك بدقة والحصول على استراتيجية عمل مخصصة
-        </p>
-    </header>
+# 1. إدخال مفتاح الـ API الخاص بك من منصة Replicate
+REPLICATE_API_TOKEN = "your_replicate_api_key_here"
 
-    <!-- Quiz Container (Filtering Funnel) -->
-    <main class="max-w-2xl w-full mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-10 shadow-2xl relative overflow-hidden my-auto">
-        
-        <!-- Progress Bar -->
-        <div class="w-full bg-slate-800 h-2.5 rounded-full mb-8 overflow-hidden">
-            <div id="progress-bar" class="bg-gradient-to-r from-cyan-500 to-blue-600 h-full w-1/5 transition-all duration-300"></div>
-        </div>
+def generate_ai_video(prompt_text):
+    headers = {
+        "Authorization": f"Token {REPLICATE_API_TOKEN}",
+        "Content-Type": "application/json",
+    }
 
-        <!-- Question 1 -->
-        <div id="step-1" class="quiz-step space-y-6">
-            <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">السؤال 1 من 5</span>
-            <h2 class="text-xl md:text-2xl font-bold text-white">ما هو مجال عملك أو نوع المنتجات التي تبيعها؟</h2>
-            <div class="space-y-3">
-                <button onclick="nextStep(1, 'التجارة الإلكترونية / COD')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">التجارة الإلكترونية والدفع عند الاستلام (COD)</span>
-                    <span class="text-cyan-400 font-bold">←</span>
-                </button>
-                <button onclick="nextStep(1, 'خدمات / استشارات')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">تقديم خدمات أو استشارات أو تدريب</span>
-                    <span class="text-cyan-400 font-bold">←</span>
-                </button>
-                <button onclick="nextStep(1, 'تجارة محلية')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">محل تجاري / خدمة تستهدف زبناء محليين</span>
-                    <span class="text-cyan-400 font-bold">←</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Question 2 -->
-        <div id="step-2" class="quiz-step hidden space-y-6">
-            <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">السؤال 2 من 5</span>
-            <h2 class="text-xl md:text-2xl font-bold text-white">كم عدد الطلبيات التي تحققها حالياً شهرياً؟</h2>
-            <div class="space-y-3">
-                <button onclick="nextStep(2, 'بداية جديدة (0 مبيعات)')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">ما زلت في مرحلة البداية (0 مبيعات)</span>
-                    <span class="text-cyan-400 font-bold">←</span>
-                </button>
-                <button onclick="nextStep(2, 'أقل من 30 طلبية')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">مبيعات متقطعة (أقل من 30 طلبية شهرياً)</span>
-                    <span class="text-cyan-400 font-bold">←</span>
-                </button>
-                <button onclick="nextStep(2, 'أكثر من 50 طلبية')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">مبيعات منتظمة وأرغب في التوسع (+50 طلبية شهرياً)</span>
-                    <span class="text-cyan-400 font-bold">←</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Question 3 -->
-        <div id="step-3" class="quiz-step hidden space-y-6">
-            <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">السؤال 3 من 5</span>
-            <h2 class="text-xl md:text-2xl font-bold text-white">ما هي العرقلة الكبرى التي تعاني منها حالياً؟</h2>
-            <div class="space-y-3">
-                <button onclick="nextStep(3, 'ضعف تحويل المتجر')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">الزوار يدخلون لكن لا يطلبون (ضعف المتجر/العرض)</span>
-                    <span class="text-cyan-400 font-bold">←</span>
-                </button>
-                <button onclick="nextStep(3, 'ضعف الفيديو والإعلانات')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">ارتفاع تكلفة الإعلانات وعدم جذب الزبناء (ضعف الإعلان)</span>
-                    <span class="text-cyan-400 font-bold">←</span>
-                </button>
-                <button onclick="nextStep(3, 'إغلاق الحسابات الإعلانية')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">مشاكل حظر الحسابات الإعلانية وتوقف الحملات</span>
-                    <span class="text-cyan-400 font-bold">←</span>
-                </button>
-                <button onclick="nextStep(3, 'مشروع جديد بالكامل')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">أرغب في إنشاء وتجهيز مشروعي بالكامل من الصفر</span>
-                    <span class="text-cyan-400 font-bold">←</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Question 4 -->
-        <div id="step-4" class="quiz-step hidden space-y-6">
-            <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">السؤال 4 من 5</span>
-            <h2 class="text-xl md:text-2xl font-bold text-white">ما هي المنصة التي ترغب في التركيز عليها؟</h2>
-            <div class="space-y-3">
-                <button onclick="nextStep(4, 'Meta (Facebook/Instagram)')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">فيسبوك وإنستغرام (Meta Ads)</span>
-                    <span class="text-cyan-400 font-bold">←</span>
-                </button>
-                <button onclick="nextStep(4, 'TikTok')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">تيك توك (TikTok Ads)</span>
-                    <span class="text-cyan-400 font-bold">←</span>
-                </button>
-                <button onclick="nextStep(4, 'كلا المنصتين')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">كلا المنصتين معاً للحصول على أقصى نتيجة</span>
-                    <span class="text-cyan-400 font-bold">←</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Question 5 -->
-        <div id="step-5" class="quiz-step hidden space-y-6">
-            <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">السؤال 5 من 5</span>
-            <h2 class="text-xl md:text-2xl font-bold text-white">هل أنت جاهز للبدء والاستثمار في نمو تجارتك الآن؟</h2>
-            <div class="space-y-3">
-                <button onclick="calculateResult('جاهز للبدء فوراً')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">نعم، مستعد للبدء فوراً وتطوير مشروعي</span>
-                    <span class="text-cyan-400 font-bold">←</span>
-                </button>
-                <button onclick="calculateResult('أرغب في استشارة')" class="w-full text-right p-4 rounded-xl bg-slate-800/80 hover:bg-cyan-950/50 hover:border-cyan-500 border border-slate-700 transition flex items-center justify-between group">
-                    <span class="font-semibold text-slate-200 group-hover:text-cyan-400">أرغب في مناقشة الخطة عبر الواتساب أولاً</span>
-                    <span class="text-cyan-400 font-bold">←</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Loading State -->
-        <div id="step-loading" class="hidden text-center py-12 space-y-4">
-            <div class="w-12 h-12 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
-            <p class="text-lg font-bold text-slate-200">جاري تحليل الإجابات وتحديد الخطة المناسبة لمتجرك...</p>
-        </div>
-
-        <!-- Result Section -->
-        <div id="step-result" class="hidden space-y-6">
-            <div class="text-center">
-                <span class="bg-green-500/10 text-green-400 border border-green-500/30 px-4 py-1 rounded-full text-xs font-bold inline-block mb-3">
-                    ✔ تم تحليل معطيات مشروعك بنجاح
-                </span>
-                <h2 id="result-title" class="text-2xl md:text-3xl font-black text-white">الخطة المخصصة لنمو تجارتك</h2>
-            </div>
-
-            <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 text-slate-300 space-y-4">
-                <p id="result-desc" class="text-base leading-relaxed text-slate-200"></p>
-                <hr class="border-slate-700 my-2">
-                <h4 class="font-bold text-white text-lg">الخدمات التي نوصي بها لمشروعك:</h4>
-                <ul id="result-features" class="space-y-3 text-sm text-slate-300"></ul>
-            </div>
-
-            <!-- WhatsApp Direct Call To Action -->
-            <a id="whatsapp-link" href="#" target="_blank" class="block w-full text-center bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold text-lg py-4 rounded-xl shadow-xl transition transform active:scale-95">
-                💬 تواصل معنا مباشرة عبر الواتساب
-            </a>
-            
-            <button onclick="resetQuiz()" class="block w-full text-center text-slate-500 hover:text-slate-300 text-xs mt-2">
-                إعادة الاختبار ↺
-            </button>
-        </div>
-
-    </main>
-
-    <!-- Long Funnel: Detailed Services Section with Images -->
-    <section class="max-w-5xl w-full mx-auto mt-20 mb-12">
-        <div class="text-center mb-16">
-            <span class="text-cyan-400 text-sm font-bold tracking-widest uppercase">خدماتنا الاحترافية</span>
-            <h3 class="text-3xl md:text-4xl font-extrabold text-slate-100 mt-2">كل ما يحتاجه متجرك الإلكتروني للنجاح</h3>
-            <p class="text-slate-400 text-sm md:text-base mt-2">نوفر لك حلولاً تسويقية وتقنية شاملة تغنيك عن الاستعانة بأي طرف آخر</p>
-        </div>
-
-        <div class="space-y-16">
-            
-            <!-- Service 1: Campaign Management -->
-            <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-6 items-center p-6 md:p-8 hover:border-slate-700 transition">
-                <div class="order-2 md:order-1 space-y-4">
-                    <div class="inline-block bg-blue-500/10 text-blue-400 text-xs font-bold px-3 py-1 rounded-full">إداريات وإعلانات</div>
-                    <h4 class="text-2xl font-bold text-white">تسيير حملة إعلانية احترافية</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        نقوم بإدارة وإطلاق حملاتك الإعلانية على منصات Meta (Facebook & Instagram) و TikTok. تشمل الخدمة الاستهداف الدقيق للجمهور المهتم، متابعة الميزانية اليومية، تحسين العائد على الاستثمار (ROAS)، واستراتيجيات اختبار المنتجات (A/B Testing) لتحقيق أكبر قدر من المبيعات بأقل تكلفة.
-                    </p>
-                    <ul class="text-xs text-slate-400 space-y-2">
-                        <li class="flex items-center gap-2"><span class="text-cyan-400">✔</span> استهداف دقيق ومجرب للجمهور الشاري.</li>
-                        <li class="flex items-center gap-2"><span class="text-cyan-400">✔</span> تتبع الأداء وتحسين المبيعات بشكل يومي.</li>
-                    </ul>
-                </div>
-                <div class="order-1 md:order-2">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="تسيير حملة إعلانية" class="rounded-2xl w-full h-64 object-cover border border-slate-800">
-                </div>
-            </div>
-
-            <!-- Service 2: Store Design -->
-            <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-6 items-center p-6 md:p-8 hover:border-slate-700 transition">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1556742049-0a670f4a4591?auto=format&fit=crop&w=800&q=80" alt="تصميم متجر إلكتروني" class="rounded-2xl w-full h-64 object-cover border border-slate-800">
-                </div>
-                <div class="space-y-4">
-                    <div class="inline-block bg-emerald-500/10 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full">تصوير وتطوير</div>
-                    <h4 class="text-2xl font-bold text-white">تصميم متجر إلكتروني احترافي</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        نصمم لك متجراً متكاملاً وعالي السرعة سواء على منصة **YouCan** أو **Shopify**. نقوم بتخصيص الألوان، كتابة نصوص بيعية مقنعة للمنتج (Copywriting)، إضافة أزرار اطلب الآن الثابتة، وضبط نموذج الطلب السريع لرفع نسبة التحويل وإقناع الزائر بالشراء فوراً.
-                    </p>
-                    <ul class="text-xs text-slate-400 space-y-2">
-                        <li class="flex items-center gap-2"><span class="text-cyan-400">✔</span> متجر متوافق 100% مع الهواتف الذكية.</li>
-                        <li class="flex items-center gap-2"><span class="text-cyan-400">✔</span> ربط سريع للواتساب وصفحة الهبوط (Landing Page).</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Service 3: Video Creatives -->
-            <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-6 items-center p-6 md:p-8 hover:border-slate-700 transition">
-                <div class="order-2 md:order-1 space-y-4">
-                    <div class="inline-block bg-purple-500/10 text-purple-400 text-xs font-bold px-3 py-1 rounded-full">صناعة المحتوى</div>
-                    <h4 class="text-2xl font-bold text-white">تصميم فيديوهات إعلانية (مونتاج / ذكاء اصطناعي)</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        ننشئ لك إعلانات فيديو احترافية تجذب الانتباه في أول 3 ثوانٍ. نعتمد على المونتاج المتقدم أو تقنيات الذكاء الاصطناعي (AI Voiceover & Scripting) لصياغة سيناريوهات تسويقية قوية تناسب منصات TikTok و Meta وتزيد من نسبة الضغط على إعلانك (CTR).
-                    </p>
-                    <ul class="text-xs text-slate-400 space-y-2">
-                        <li class="flex items-center gap-2"><span class="text-cyan-400">✔</span> تعليق صوتي احترافي بالذكاء الاصطناعي أو المونتاج الاحترافي.</li>
-                        <li class="flex items-center gap-2"><span class="text-cyan-400">✔</span> كتابة النصوص ومؤثرات جالبة للمبيعات.</li>
-                    </ul>
-                </div>
-                <div class="order-1 md:order-2">
-                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" alt="تصميم فيديوهات إعلانية" class="rounded-2xl w-full h-64 object-cover border border-slate-800">
-                </div>
-            </div>
-
-            <!-- Service 4: Ad Accounts -->
-            <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-6 items-center p-6 md:p-8 hover:border-slate-700 transition">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" alt="حسابات إعلانية قوية" class="rounded-2xl w-full h-64 object-cover border border-slate-800">
-                </div>
-                <div class="space-y-4">
-                    <div class="inline-block bg-amber-500/10 text-amber-400 text-xs font-bold px-3 py-1 rounded-full">بنية تحتية</div>
-                    <h4 class="text-2xl font-bold text-white">إنشاء وتجهيز حسابات إعلانية قوية</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        نوفر لك حلولاً متكاملة لتفادي إغلاق وحظر الحسابات الإعلانية. نقوم بتهيئة Business Manager الموثوق، ربط وسائط الدفع الصحيحة، وتجهيز البيكسل (Pixel & Conversions API) لضمان استقرار إعلاناتك واستمراريتها دون توقف.
-                    </p>
-                    <ul class="text-xs text-slate-400 space-y-2">
-                        <li class="flex items-center gap-2"><span class="text-cyan-400">✔</span> ربط صحيح للبيكسل لتتبع التحويلات.</li>
-                        <li class="flex items-center gap-2"><span class="text-cyan-400">✔</span> حماية حساباتك وتفادي الإغلاق المفاجئ.</li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Final Call to Action -->
-        <div class="mt-16 text-center bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-12">
-            <h4 class="text-2xl md:text-3xl font-bold text-white">هل أنت جاهز لتطوير تجارتك اليوم؟</h4>
-            <p class="text-slate-400 text-sm mt-2 max-w-lg mx-auto">تواصل معنا الآن مباشرة عبر الواتساب لمناقشة مشروعك واختيار الخطة الأنسب لك.</p>
-            <a href="https://wa.me/212601559517?text=%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D9%80%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83%D9%85%20%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1%20%D9%85%D8%AA%D8%AC%D8%B1%D9%8A%20%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A" target="_blank" class="inline-block mt-6 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-xl transition transform active:scale-95">
-                💬 تواصل عبر الواتساب: 0601559517
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="text-center py-6 text-slate-500 text-xs border-t border-slate-900">
-        جميع الحقوق محفوظة © Aristo MEDIA | خدمات التسويق الرقمي والتجارة الإلكترونية
-    </footer>
-
-    <!-- Logic Script -->
-    <script>
-        const WHATSAPP_NUMBER = "212601559517";
-
-        let userAnswers = {};
-
-        function nextStep(currentStep, answer) {
-            userAnswers[`step${currentStep}`] = answer;
-            document.getElementById(`step-${currentStep}`).classList.add('hidden');
-            
-            const nextStepNum = currentStep + 1;
-            document.getElementById(`step-${nextStepNum}`).classList.remove('hidden');
-            
-            const progress = (nextStepNum / 5) * 100;
-            document.getElementById('progress-bar').style.width = `${progress}%`;
+    # 2. إرسال أمر توليد الفيديو للنموذج الذكي
+    payload = {
+        "version": "a4269d5639f3d9b83611d5cf7242d5e71bc20165c84d720b080f33d7b889e472",  # نموذج توليد فيديو
+        "input": {
+            "prompt": prompt_text,
+            "num_frames": 24,
+            "fps": 8
         }
+    }
 
-        function calculateResult(readiness) {
-            userAnswers['readiness'] = readiness;
-            document.getElementById('step-5').classList.add('hidden');
-            document.getElementById('step-loading').classList.remove('hidden');
+    print("جاري إرسال طلب توليد الفيديو...")
+    response = requests.post("https://api.replicate.com/v1/predictions", json=payload, headers=headers)
+    prediction = response.json()
+    
+    # 3. الانتظار حتى يكتمل معالجة الفيديو
+    prediction_url = prediction["urls"]["get"]
+    while prediction["status"] not in ["succeeded", "failed"]:
+        print("الذكاء الاصطناعي يقوم بصناعة الفيديو الآن... انتظر بضع ثوانٍ.")
+        time.sleep(5)
+        prediction = requests.get(prediction_url, headers=headers).json()
 
-            setTimeout(() => {
-                document.getElementById('step-loading').classList.add('hidden');
-                document.getElementById('step-result').classList.remove('hidden');
-                
-                const title = document.getElementById('result-title');
-                const desc = document.getElementById('result-desc');
-                const features = document.getElementById('result-features');
-                const waBtn = document.getElementById('whatsapp-link');
+    if prediction["status"] == "succeeded":
+        video_url = prediction["output"]
+        print(f"✅ تم توليد الفيديو بنجاح! رابط التحميل: {video_url}")
+        return video_url
+    else:
+        print("❌ حدث خطأ أثناء توليد الفيديو.")
+        return None
 
-                if (userAnswers.step2 === 'بداية جديدة (0 مبيعات)' || userAnswers.step3 === 'مشروع جديد بالكامل') {
-                    title.innerText = "خطة التجهيز الشامل والانطلاقة";
-                    desc.innerText = "مشروعك يحتاج لبناء متكامل لتفادي تضييع المال. سنقوم بتجهيز المتجر، المحتوى الإعلاني الحصري، وتأمين الحسابات قبل إطلاق الإعلانات.";
-                    features.innerHTML = `
-                        <li>🚀 **تصميم متجر متكامل:** واجهة سريعة ومقنعة على YouCan أو Shopify.</li>
-                        <li>🚀 **فيديو إعلاني جذاب:** صياغة سيناريو ومونتاج بمؤثرات قوية.</li>
-                        <li>🚀 **تسيير الحملة والإشراف:** إطلاق الحملة على المنصة المناسبة.</li>
-                    `;
-                } else if (userAnswers.step3 === 'ضعف تحويل المتجر') {
-                    title.innerText = "خطة إعادة هيكلة المتجر ورفع المبيعات";
-                    desc.innerText = "المشكلة في تحويل الزوار إلى مشترين. سنقوم بتطوير واجهة متجرك وصياغة العروض لرفع نسبة المبيعات.";
-                    features.innerHTML = `
-                        <li>🎯 **تطوير المتجر:** تحسين تجربة الشراء وسرعة التصفح.</li>
-                        <li>🎯 **صنع محتوى جديد:** فيديوهات إعلانية تركز على زوايا بيع مختلفة.</li>
-                    `;
-                } else {
-                    title.innerText = "خطة التوسع ومضاعفة النتائج";
-                    desc.innerText = "مشروعك جاهز للتوسع والوصول إلى أرقام مضاعفة أسبوعياً عبر حملات احترافية حساسة وتتبع دقيق.";
-                    features.innerHTML = `
-                        <li>🔥 **تسيير حملات متقدمة:** استهداف دقيق وتقليل تكلفة طلبية الشراء.</li>
-                        <li>🔥 **تأمين البنية التحتية:** حسابات إعلانية قوية لمنع التوقف.</li>
-                    `;
-                }
-
-                const waMessage = `السلام عليكم، أكملت التقييم في الموقع:\n- المجال: ${userAnswers.step1}\n- المبيعات الحالية: ${userAnswers.step2}\n- المشكلة الرئيسية: ${userAnswers.step3}\n- المنصة المفضلّة: ${userAnswers.step4}\nأرغب في مناقشة الخطة معكم.`;
-                setWhatsApp(waBtn, waMessage);
-
-                if (typeof fbq !== 'undefined') {
-                    fbq('track', 'CompleteRegistration');
-                }
-
-            }, 1200);
-        }
-
-        function setWhatsApp(element, text) {
-            const encodedText = encodeURIComponent(text);
-            element.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`;
-            element.onclick = function() {
-                if (typeof fbq !== 'undefined') {
-                    fbq('track', 'Contact');
-                }
-            };
-        }
-
-        function resetQuiz() {
-            userAnswers = {};
-            document.getElementById('progress-bar').style.width = '20%';
-            document.getElementById('step-result').classList.add('hidden');
-            document.getElementById('step-1').classList.remove('hidden');
-        }
-    </script>
-</body>
-</html>
+# تجربة الكود بوصف إعلان منتج
+prompt = "Cinematic slow motion shot of a luxury perfume bottle surrounded by rose petals and smoke, 4k resolution, photorealistic"
+generate_ai_video(prompt)
